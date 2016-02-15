@@ -9,15 +9,23 @@ var app = angular.module('tatchaTouch', ['ngRoute', 'ngAnimate']);
 		 	.otherwise({
 		 	    redirectTo: '/'
 		 	});
-		 	
+
 		}]);
 
 	app.controller('MainCtrl', ['$scope', '$http',function($scope, $http){
 		$scope.photos = [];
-				$http.get("http://jsonplaceholder.typicode.com/photos") 
-				  .success(function(data){
-				    console.log(data);
+		
+		$http.get("http://jsonplaceholder.typicode.com/photos") 
+			.success(function(data){
+				console.log(data);
 
-				   $scope.photos = data; 
-				  })
+		$scope.photos = data; 
+		})
+
+		$scope.numLimit = 20;
+
+		$scope.order = "Title"; // setting up the default radio to "title"
+		$scope.direction = null;
+		$scope.query = ''; 
+
 	}]);

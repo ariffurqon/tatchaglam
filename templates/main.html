@@ -1,10 +1,26 @@
 <div>
     <h1>Tatcha Touch!</h1>
-        <div class="col-md-3" ng-repeat="photo in photos">
+        <input type="text" class="form-control" placeholder="search your fave tatcha glam.."><br>
+        <form class="form-inline">
+                            <strong><span>by: </span></strong>
+                            <select ng-model="order">
+                                <option value="ID">ID</option>
+                                <option value="Title">Title</option>
+                            </select>
+               
+                            <input id="dirascending" type="radio" ng-model="direction" name="direction">
+                                <label for="dirascending">asc</label>&nbsp;
+
+                            <input id="dirdescending" type="radio" ng-model="direction" name="direction" value="reverse">
+                                <label for="dirdescending">desc</label>
+        </form>
+
+        <hr><br>
+        <div class="col-md-3" ng-repeat="photo in photos | orderBy: order:direction | filter: tag | limitTo: numLimit">
                 <div class="thumbnail">
                     <img ng-src="{{photo.url}}">
                 </div>
-                
+
                 <div>
                     <h3>Tatch@{{photo.id}}</h3>
                     <p>{{photo.title}}</p>
