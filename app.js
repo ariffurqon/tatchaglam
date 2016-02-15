@@ -1,10 +1,15 @@
-var app = angular.module('tatchaTouch', ['ngRoute', 'ngAnimate']);
+var app = angular.module('tatchaglam', ['ngRoute', 'ngAnimate']);
 	app.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider
 		    .when('/', {
-		      templateUrl: 'templates/main.html',
-		      controller: 'MainCtrl'
+		      	templateUrl: 'templates/main.html',
+		      	controller: 'MainCtrl'
 		    })
+
+		    .when('/photos/:photoId', {
+	            templateUrl: 'templates/photo-detail.html',
+	            controller: 'PhotoDetailCtrl'
+	        })
 
 		 	.otherwise({
 		 	    redirectTo: '/'
@@ -29,3 +34,14 @@ var app = angular.module('tatchaTouch', ['ngRoute', 'ngAnimate']);
 		$scope.query = ''; 
 
 	}]);
+
+	app.controller('PhotoDetailCtrl', ['$scope', '$http', '$routeParams', function($scope, $http,$routeParams) {
+    	$http.get("http://jsonplaceholder.typicode.com/photos") 
+    		.success(function(data){
+    		    // console.log(data);
+    		$scope.photos = data; 
+    		});
+    	
+    	$scope.whichPhoto = $routeParams.photoId;
+
+  	}]);

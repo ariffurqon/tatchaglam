@@ -1,0 +1,12 @@
+<section class="photo-detail">
+	<div class="col-md-12" ng-model="photos">
+	    <div class="thumbnail">
+	        <img ng-src="{{photos[whichPhoto].url}}">
+	    </div>
+	    <div>
+	    	<h4>Tatch@{{photos[whichPhoto].id}}</h4>
+	    	<p>{{photos[whichPhoto].title}}</p>
+	    </div>
+	</div>
+	<strong> &nbsp;<a href="/#photos">&laquo; Back to the Main Page</a> </strong>
+</section>
