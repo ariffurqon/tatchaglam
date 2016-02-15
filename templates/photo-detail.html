@@ -1,5 +1,6 @@
 <section class="photo-detail">
-	<div class="col-md-12" ng-model="photos">
+	<div class="col-md-offset-3 col-md-6" ng-model="photos"><br>
+		<h4><a href="/#photos">&laquo; Back to the Main Page</a> </h4><hr>
 	    <div class="thumbnail">
 	        <img ng-src="{{photos[whichPhoto].url}}">
 	    </div>
@@ -8,5 +9,4 @@
 	    	<p>{{photos[whichPhoto].title}}</p>
 	    </div>
 	</div>
-	<strong> &nbsp;<a href="/#photos">&laquo; Back to the Main Page</a> </strong>
 </section>

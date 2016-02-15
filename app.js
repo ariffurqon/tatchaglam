@@ -22,7 +22,7 @@ var app = angular.module('tatchaglam', ['ngRoute', 'ngAnimate']);
 		
 		$http.get("http://jsonplaceholder.typicode.com/photos") 
 			.success(function(data){
-				console.log(data);
+				// console.log(data);
 
 		$scope.photos = data; 
 		})
