@@ -28,7 +28,15 @@
             <div class="col-md-12">
                 <div>
                     <h1>Tatcha Touch!</h1>
-                        <p>{{ products }}</p>
+                        <div class="col-md-3" ng-repeat="photo in photos">
+                                <div class="thumbnail">
+                                    <img ng-src="{{photo.url}}">
+                                </div>
+                                    <div>
+                                        <h3>Tatch@{{photo.id}}</h3>
+                                        <p>{{photo.title}}</p>
+                                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
